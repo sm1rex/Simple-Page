@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="menustyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <main class="container">
+        <div class="left-column">
+            <img data-image="little" src="images/Small.png">
+            <img data-image="middle" src="images/Middle.png">
+            <img data-image="big" class="active" src="images/Big.png">
+        </div>
+
+
+        <div class="right-column">
+            <div class="product-description">
+                <span>Coffee</span>
+                <h1>Starbucks Capuccino</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quos minus excepturi, ea tempora id veritatis autem natus ab labore, sunt, consequuntur repellendus omnis unde dolorem quaerat facere nobis obcaecati.</p>
+            </div>
+
+            <div class="product-configuration">
+                <div class="product-size">
+                    <span>Choose Size:</span>
+
+                    <div class="size-choose">
+                        <div>
+                            <input data-image="little" type="radio" id="little" value="little">
+                            <label for="little">
+                                <span>S</span>
+                            </label>
+                        </div>
+
+                        <div>
+                            <input data-image="middle" type="radio" id="middle" value="middle">
+                            <label for="middle">
+                                <span>M</span>
+                            </label>
+                        </div>
+
+                        <div>
+                            <input class="active" data-image="big" type="radio" id="big" value="big">
+                            <label for="big">
+                                <span>XL</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="product-price">
+                <span>15$</span>
+                <a href="#" class="cart-btn">Add to cart</a>
+            </div>
+        </div>
+    </main>
+
+
+    <script>
+        $(document).ready(function() {
+            $('.size-choose input').on('click', function() {
+                var coffeesize = $(this).attr('data-image');
+ 
+                $('.active').removeClass('active');
+                $('.left-column img[data-image = ' + coffeesize + ']').addClass('active');
+                $(this).addClass('active');
+            })
+        })
+    </script>
+</body>
+</html>
